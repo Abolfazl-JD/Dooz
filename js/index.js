@@ -264,14 +264,14 @@
 
         $(document).ready(function(){
         $('#btn1').click(function () {
-            $(location).reload(true);
+            location.reload(true);
         })
 
              $('#btn2').click(function () {
-                $(location).reload(true);
+                location.reload(true);
             })
 
             $('#btn3').click(function () {
-        location.reload(true);
+                location.reload(true);
             })
         })
