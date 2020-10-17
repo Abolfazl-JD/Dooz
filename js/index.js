@@ -54,7 +54,7 @@
                         cwin.style.display = 'block'
                     }, 500);
                 }
-                else if(circle_win === false && !times_win === false && arr.indexOf('') === -1){
+                else if(circle_win === false && times_win === false && arr.indexOf('') === -1){
                     setTimeout(() => {
                         game.style.display = 'none'
                         draw.style.display = 'block'
