@@ -1,198 +1,193 @@
-         *{
-            margin: 0;
-            padding: 0;
-            border: 0;
-        }
-        .container{
-            width: 800px;
-            height: 575px;
-            margin: 0px auto;
-            background-color: #000;
-            padding-top: 82px;
-        }
-        
-        .box {
-            width: 205px;
-            float: left;
-            height: 167px;
-            cursor: pointer;
-        }
-
-        .game{
-            margin-left: 88px;
-        }
-
-        #col0{
-            border-right: 2px solid #fff;
-            border-bottom: 2px solid #fff;
-        }
-
-        #col1{
-            border-right: 2px solid #fff;
-            border-bottom: 2px solid #fff;
-        }
-
-        #col2{
-            border-bottom: 2px solid #fff;
-        }
-
-        #col3{
-            border-right: 2px solid #fff;
-            border-bottom: 2px solid #fff;
-        }
-
-        #col4{
-            border-right: 2px solid #fff;
-            border-bottom: 2px solid #fff;
-        }
-
-        #col5{
-            border-bottom: 2px solid #fff;
-        }
-
-        #col6{
-            border-right: 2px solid #fff;
-        }
-
-        #col7{
-            border-right: 2px solid #fff;
-        }
-
-        .fa-circle{
-            color: red;
-            text-align: center;
-            display: block;
-            line-height: 167px;
-            font-size: 87px;
-            transition: all 0.3s ease;
-        }
-
-        .fa-times{
-            color: blue;
-            text-align: center;
-            display: block;
-            line-height: 167px;
-            font-size: 105px;
-        }
-
-        .x-win{
-            text-align: center;
-            padding-top: 100px;
-            display: none;
-        }
-
-        .x-win p{
-            color: blue;
-            position: absolute;
-            font-size: 87px;
-            top: 211px;
-            left: 692px;
-            display: inline-block;
-        }
-
-        .x-win i{
-            color: blue;
-            text-align: center;
-            display: inline-block !important;
-            line-height: 167px;
-            font-size: 105px !important;
-            margin-right: 99px !important;
-        }
-
-        .x-win button{
-            display: block;
-            background-color: #000;
-            color: blue;
-            border: 2px solid blue;
-            border-radius: 5px;
-            font-size: 21px;
-            margin-left: 308px;
-            padding: 11px 72px;
-            cursor: pointer;
-            transition: 0.3s all ease;
-        }
-
-        .x-win button:hover{
-            background-color: blue;
-            color: #000;
-        }
-
-
-
-        .circle-win{
-            text-align: center;
-            padding-top: 100px;
-            display: none;
-        }
-
-        .circle-win p{
-            color: red;
-            position: absolute;
-            font-size: 87px;
-            top: 211px;
-            left: 692px;
-            display: inline-block;
-        }
-
-        .circle-win i{
-            color: red;
-            text-align: center;
-            display: inline-block !important;
-            line-height: 167px;
-            font-size: 105px !important;
-            margin-right: 99px !important;
-        }
-
-        .circle-win button{
-            display: block;
-            background-color: #000;
-            color: red;
-            border: 2px solid red;
-            border-radius: 5px;
-            font-size: 21px;
-            margin-left: 308px;
-            padding: 11px 72px;
-            cursor: pointer;
-            transition: 0.3s all ease;
-        }
-
-        .circle-win button:hover{
-            background-color: red;
-            color: #000;
-        }
-
-
-        .draw{
-            text-align: center;
-            padding-top: 100px;
-            display: none;
-        }
-
-        .draw p{
-            color: #fff;
-            font-size: 87px;
-            text-align: center;
-            display: block;
-            margin: 0 auto 30px;
-        }
-
-        
-
-        .draw button{
-            display: block;
-            background-color: #000;
-            color: #fff;
-            border: 2px solid #fff;
-            border-radius: 5px;
-            font-size: 21px;
-            margin-left: 280px;
-            padding: 11px 72px;
-            cursor: pointer;
-            transition: 0.3s all ease;
-        }
-
-        .draw button:hover{
-            background-color: white;
-            color: #000;
-        }
-
+         * {
+             margin: 0;
+             padding: 0;
+             border: 0;
+         }
+         
+         .container {
+             width: 800px;
+             height: 575px;
+             margin: 0px auto;
+             background-color: #000;
+             padding-top: 82px;
+         }
+         
+         .box {
+             width: 205px;
+             float: left;
+             height: 167px;
+             cursor: pointer;
+         }
+         
+         .game {
+             margin-left: 88px;
+         }
+         
+         #col0 {
+             border-right: 2px solid #fff;
+             border-bottom: 2px solid #fff;
+         }
+         
+         #col1 {
+             border-right: 2px solid #fff;
+             border-bottom: 2px solid #fff;
+         }
+         
+         #col2 {
+             border-bottom: 2px solid #fff;
+         }
+         
+         #col3 {
+             border-right: 2px solid #fff;
+             border-bottom: 2px solid #fff;
+         }
+         
+         #col4 {
+             border-right: 2px solid #fff;
+             border-bottom: 2px solid #fff;
+         }
+         
+         #col5 {
+             border-bottom: 2px solid #fff;
+         }
+         
+         #col6 {
+             border-right: 2px solid #fff;
+         }
+         
+         #col7 {
+             border-right: 2px solid #fff;
+         }
+         
+         .fa-circle {
+             color: red;
+             text-align: center;
+             display: block;
+             line-height: 167px;
+             font-size: 87px;
+             transition: all 0.3s ease;
+         }
+         
+         .fa-times {
+             color: blue;
+             text-align: center;
+             display: block;
+             line-height: 167px;
+             font-size: 105px;
+         }
+         
+         .x-win {
+             text-align: center;
+             padding-top: 100px;
+             display: none;
+         }
+         
+         .x-win p {
+             color: blue;
+             position: absolute;
+             font-size: 87px;
+             top: 211px;
+             left: 692px;
+             display: inline-block;
+         }
+         
+         .x-win i {
+             color: blue;
+             text-align: center;
+             display: inline-block !important;
+             line-height: 167px;
+             font-size: 105px !important;
+             margin-right: 99px !important;
+         }
+         
+         .x-win button {
+             display: block;
+             background-color: #000;
+             color: blue;
+             border: 2px solid blue;
+             border-radius: 5px;
+             font-size: 21px;
+             margin-left: 308px;
+             padding: 11px 72px;
+             cursor: pointer;
+             transition: 0.3s all ease;
+         }
+         
+         .x-win button:hover {
+             background-color: blue;
+             color: #000;
+         }
+         
+         .circle-win {
+             text-align: center;
+             padding-top: 100px;
+             display: none;
+         }
+         
+         .circle-win p {
+             color: red;
+             position: absolute;
+             font-size: 87px;
+             top: 211px;
+             left: 692px;
+             display: inline-block;
+         }
+         
+         .circle-win i {
+             color: red;
+             text-align: center;
+             display: inline-block !important;
+             line-height: 167px;
+             font-size: 105px !important;
+             margin-right: 99px !important;
+         }
+         
+         .circle-win button {
+             display: block;
+             background-color: #000;
+             color: red;
+             border: 2px solid red;
+             border-radius: 5px;
+             font-size: 21px;
+             margin-left: 308px;
+             padding: 11px 72px;
+             cursor: pointer;
+             transition: 0.3s all ease;
+         }
+         
+         .circle-win button:hover {
+             background-color: red;
+             color: #000;
+         }
+         
+         .draw {
+             text-align: center;
+             padding-top: 100px;
+             display: none;
+         }
+         
+         .draw p {
+             color: #fff;
+             font-size: 87px;
+             text-align: center;
+             display: block;
+             margin: 0 auto 30px;
+         }
+         
+         .draw button {
+             display: block;
+             background-color: #000;
+             color: #fff;
+             border: 2px solid #fff;
+             border-radius: 5px;
+             font-size: 21px;
+             margin-left: 280px;
+             padding: 11px 72px;
+             cursor: pointer;
+             transition: 0.3s all ease;
+         }
+         
+         .draw button:hover {
+             background-color: white;
+             color: #000;
+         }
