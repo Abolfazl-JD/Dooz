@@ -8,6 +8,7 @@
 
     for (let i = 0; i < boxes.length; i++) {
         const element = boxes[i]
+        let win_ways = [[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,5,8],[3,4,5],[6,7,8],[2,4,6]]
 
         element.onclick = () => {
             if (circle) {
@@ -32,258 +33,36 @@
                 arr[i] = pic
             }
 
-            if (arr[0] === 'fas fa-times' && arr[1] === 'fas fa-times' && arr[2] === 'fas fa-times') {
+            for (const ways_to_win of win_ways) {
+                let classes = []
+                for (const index of ways_to_win) {
+                    classes.push(arr[index])
+                }
 
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    xwin.style.display = 'block'
-                }, 500);
-            } 
-           
-           
-            else if (arr[0] === 'fas fa-times' && arr[3] === 'fas fa-times' && arr[6] === 'fas fa-times') {
+                let times_win = classes.every(v => v === 'fas fa-times')
+                let circle_win = classes.every(v => v === 'far fa-circle')
 
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    xwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[0] === 'fas fa-times' && arr[4] === 'fas fa-times' && arr[8] === 'fas fa-times') {
-
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    xwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[1] === 'fas fa-times' && arr[4] === 'fas fa-times' && arr[7] === 'fas fa-times') {
-
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    xwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[2] === 'fas fa-times' && arr[5] === 'fas fa-times' && arr[8] === 'fas fa-times') {
-
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    xwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[2] === 'fas fa-times' && arr[4] === 'fas fa-times' && arr[6] === 'fas fa-times') {
-
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    xwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[3] === 'fas fa-times' && arr[4] === 'fas fa-times' && arr[5] === 'fas fa-times') {
-
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    xwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[6] === 'fas fa-times' && arr[7] === 'fas fa-times' && arr[8] === 'fas fa-times') {
-
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    xwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[0] === 'far fa-circle' && arr[1] === 'far fa-circle' && arr[2] === 'far fa-circle') {
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    cwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[0] === 'far fa-circle' && arr[3] === 'far fa-circle' && arr[6] === 'far fa-circle') {
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    cwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[0] === 'far fa-circle' && arr[4] === 'far fa-circle' && arr[8] === 'far fa-circle') {
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    cwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[1] === 'far fa-circle' && arr[4] === 'far fa-circle' && arr[7] === 'far fa-circle') {
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    cwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[2] === 'far fa-circle' && arr[5] === 'far fa-circle' && arr[8] === 'far fa-circle') {
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    cwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[2] === 'far fa-circle' && arr[4] === 'far fa-circle' && arr[6] === 'far fa-circle') {
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    cwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[3] === 'far fa-circle' && arr[4] === 'far fa-circle' && arr[5] === 'far fa-circle') {
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    cwin.style.display = 'block'
-                }, 500);
-            }
-            
-            else if (arr[6] === 'far fa-circle' && arr[7] === 'far fa-circle' && arr[8] === 'far fa-circle') {
-                setTimeout(() => {
-                    game.style.display = 'none'
-                    cwin.style.display = 'block'
-                }, 500);
-            }
-
-
-            if (arr.indexOf('') === -1) {
-                if (arr[0] === 'fas fa-times' && arr[1] === 'fas fa-times' && arr[2] === 'fas fa-times') {
-
+                if(times_win){
                     setTimeout(() => {
                         game.style.display = 'none'
                         xwin.style.display = 'block'
                     }, 500);
                 }
-                
-                else if (arr[0] === 'fas fa-times' && arr[3] === 'fas fa-times' && arr[6] === 'fas fa-times') {
-
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        xwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[0] === 'fas fa-times' && arr[4] === 'fas fa-times' && arr[8] === 'fas fa-times') {
-
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        xwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[1] === 'fas fa-times' && arr[4] === 'fas fa-times' && arr[7] === 'fas fa-times') {
-
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        xwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[2] === 'fas fa-times' && arr[5] === 'fas fa-times' && arr[8] === 'fas fa-times') {
-
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        xwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[2] === 'fas fa-times' && arr[4] === 'fas fa-times' && arr[6] === 'fas fa-times') {
-
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        xwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[3] === 'fas fa-times' && arr[4] === 'fas fa-times' && arr[5] === 'fas fa-times') {
-
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        xwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[6] === 'fas fa-times' && arr[7] === 'fas fa-times' && arr[8] === 'fas fa-times') {
-
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        xwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[0] === 'far fa-circle' && arr[1] === 'far fa-circle' && arr[2] === 'far fa-circle') {
+                else if(circle_win){
                     setTimeout(() => {
                         game.style.display = 'none'
                         cwin.style.display = 'block'
                     }, 500);
                 }
-                
-                else if (arr[0] === 'far fa-circle' && arr[3] === 'far fa-circle' && arr[6] === 'far fa-circle'
-                
-                ) {
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        cwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[0] === 'far fa-circle' && arr[4] === 'far fa-circle' && arr[8] === 'far fa-circle') {
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        cwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[1] === 'far fa-circle' && arr[4] === 'far fa-circle' && arr[7] === 'far fa-circle') {
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        cwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[2] === 'far fa-circle' && arr[5] === 'far fa-circle' && arr[8] === 'far fa-circle') {
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        cwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[2] === 'far fa-circle' && arr[4] === 'far fa-circle' && arr[6] === 'far fa-circle') {
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        cwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[3] === 'far fa-circle' && arr[4] === 'far fa-circle' && arr[5] === 'far fa-circle') {
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        cwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else if (arr[6] === 'far fa-circle' && arr[7] === 'far fa-circle' && arr[8] === 'far fa-circle') {
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        cwin.style.display = 'block'
-                    }, 500);
-                }
-                
-                else {
+                else if(circle_win === false && !times_win === false && arr.indexOf('') === -1){
                     setTimeout(() => {
                         game.style.display = 'none'
                         draw.style.display = 'block'
                     }, 500);
                 }
             }
+
+                
         }
 
 
