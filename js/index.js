@@ -7,8 +7,18 @@
     let arr = ['', '', '', '', '', '', '', '', '']
 
     for (let i = 0; i < boxes.length; i++) {
+        let has_winner = false
         const element = boxes[i]
-        let win_ways = [[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,5,8],[3,4,5],[6,7,8],[2,4,6]]
+        let win_ways = [
+            [0, 1, 2],
+            [0, 3, 6],
+            [0, 4, 8],
+            [1, 4, 7],
+            [2, 5, 8],
+            [3, 4, 5],
+            [6, 7, 8],
+            [2, 4, 6]
+        ]
 
         element.onclick = () => {
             if (circle) {
@@ -20,9 +30,7 @@
                 let img = document.getElementById(`ic${i}`)
                 let pic = img.getAttribute('class')
                 arr[i] = pic
-            }
-            
-            else {
+            } else {
                 let icon = document.createElement('i')
                 icon.setAttribute('class', 'fas fa-times')
                 icon.setAttribute('id', `ic${i}`)
@@ -35,6 +43,7 @@
 
             for (const ways_to_win of win_ways) {
                 let classes = []
+
                 for (const index of ways_to_win) {
                     classes.push(arr[index])
                 }
@@ -42,27 +51,32 @@
                 let times_win = classes.every(v => v === 'fas fa-times')
                 let circle_win = classes.every(v => v === 'far fa-circle')
 
-                if(times_win){
+                if (times_win) {
                     setTimeout(() => {
                         game.style.display = 'none'
                         xwin.style.display = 'block'
                     }, 500);
-                }
-                else if(circle_win){
+
+                    has_winner = true
+                } else if (circle_win) {
                     setTimeout(() => {
                         game.style.display = 'none'
                         cwin.style.display = 'block'
                     }, 500);
+                    has_winner = true
                 }
-                else if(circle_win === false && times_win === false && arr.indexOf('') === -1){
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        draw.style.display = 'block'
-                    }, 500);
-                }
+
             }
 
-                
+            if (has_winner === false && arr.indexOf('') === -1) {
+                setTimeout(() => {
+                    game.style.display = 'none'
+                    draw.style.display = 'block'
+                }, 500);
+            }
+
+
+
         }
 
 
@@ -70,16 +84,16 @@
 
     }
 
-    $(document).ready(function () {
-        $('#btn1').click(function () {
+    $(document).ready(function() {
+        $('#btn1').click(function() {
             location.reload(true);
         })
 
-        $('#btn2').click(function () {
+        $('#btn2').click(function() {
             location.reload(true);
         })
 
-        $('#btn3').click(function () {
+        $('#btn3').click(function() {
             location.reload(true);
         })
     })
