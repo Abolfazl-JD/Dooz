@@ -1,85 +1,89 @@
-    let circle = false
-    let game = document.querySelector('.game')
-    let xwin = document.querySelector('.x-win')
-    let cwin = document.querySelector('.circle-win')
-    let draw = document.querySelector('.draw')
-    let boxes = document.querySelectorAll('.box')
-    let arr = ['', '', '', '', '', '', '', '', '']
+// ---------------------- data -------------------------------
+const allUsers = [
+    { name: "Reza", number: "+989381072254" },
+    { name: "Parsa", number: "+989101548653", },
+    { name: "Hassan", number: "+989125894761", },
+    { name: "Jafar", number: "+989012486248", },
+    { name: "Mammad", number: "+9890745615784", },
+    { name: "Sarah", number: "+989101522273", },
+    { name: "Emma watson", number: "+989154862124", },
+    { name: "Jenifer lopez", number: "+98939458716", },
+    { name: "Anjelina Jooly", number: "+989174589348", },
+    { name: " Amber heard", number: "+989872452555", },
+]
 
-    for (let i = 0; i < boxes.length; i++) {
-        const element = boxes[i]
-        let win_ways = [[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,5,8],[3,4,5],[6,7,8],[2,4,6]]
+const numberButtons = [
+    { number: 1, alphabets: "ABC" },
+    { number: 2, alphabets: "DEF" },
+    { number: 3, alphabets: "GHI" },
+    { number: 4, alphabets: "JKL" },
+    { number: 5, alphabets: "MNO" },
+    { number: 6, alphabets: "PQR" },
+    { number: 7, alphabets: "STU" },
+    { number: 8, alphabets: "VWX" },
+    { number: 9, alphabets: "YZ" }
+]
 
-        element.onclick = () => {
-            if (circle) {
-                let icon = document.createElement('i')
-                icon.setAttribute('class', 'far fa-circle')
-                icon.setAttribute('id', `ic${i}`)
-                element.append(icon)
-                circle = false
-                let img = document.getElementById(`ic${i}`)
-                let pic = img.getAttribute('class')
-                arr[i] = pic
-            }
-            
-            else {
-                let icon = document.createElement('i')
-                icon.setAttribute('class', 'fas fa-times')
-                icon.setAttribute('id', `ic${i}`)
-                element.append(icon)
-                circle = true
-                let img = document.getElementById(`ic${i}`)
-                let pic = img.getAttribute('class')
-                arr[i] = pic
-            }
+// --------------------------- action functions --------------------------
+const searchBarElem = document.getElementById('search')
 
-            for (const ways_to_win of win_ways) {
-                let classes = []
-                for (const index of ways_to_win) {
-                    classes.push(arr[index])
-                }
-
-                let times_win = classes.every(v => v === 'fas fa-times')
-                let circle_win = classes.every(v => v === 'far fa-circle')
-
-                if(times_win){
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        xwin.style.display = 'block'
-                    }, 500);
-                }
-                else if(circle_win){
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        cwin.style.display = 'block'
-                    }, 500);
-                }
-                else if(arr.indexOf('') === -1){
-                    setTimeout(() => {
-                        game.style.display = 'none'
-                        draw.style.display = 'block'
-                    }, 500);
-                }
-            }
-
-                
-        }
+let characterToSearch = []
 
 
+function addAlphabetToSearchBar(number, alphabets) {
+    characterToSearch.push(alphabets)
+    searchBarElem.value += number
 
+    searchContacts()
+}
 
-    }
+function searchContacts(){
+    // write your codes here
+}
 
-    $(document).ready(function () {
-        $('#btn1').click(function () {
-            location.reload(true);
-        })
+// ------------------- element generators ---------------------------
 
-        $('#btn2').click(function () {
-            location.reload(true);
-        })
+// users argument is a array of user object
+function ContactList(users) {
+    const usersItems = users.map(u => ContactItem(u))
+    return usersItems.join('')
+}
 
-        $('#btn3').click(function () {
-            location.reload(true);
-        })
+// generates a new contact element
+function ContactItem({ name, number }) {
+    return (
+        "<div class='informations'>" +
+        `  <p class='people'>${name}</p >` +
+        `  <p class='numbers'>${number}</p>` +
+        "</div >"
+    )
+}
+
+function keyboardButtonElem({ number, alphabets }) {
+    return (
+        `<div class="child" onclick="addAlphabetToSearchBar(${number},'${alphabets}')">` +
+        `  <div class="num">${number}</div>` +
+        `  <span id="s8">${alphabets}</span>` +
+        '</div>'
+    )
+}
+
+function keyboardGenElem() {
+    const buttons = numberButtons.map(b => keyboardButtonElem(b))
+    return buttons.join('')
+}
+
+// -------------------- initialize event listeners ---------------------
+
+$(document).ready(() => {
+    $('#search').focus(() => {
+        $('.keyboard').slideDown(500)
+
+        $('.informations').css('display', 'none')
+        $('.phones').css('height', '230px')
+        $('.phones').css('overflow', 'scroll')
+
+        $('.phones').html(ContactList(allUsers))
+        $('.keyboard').html(keyboardGenElem())
     })
+})
